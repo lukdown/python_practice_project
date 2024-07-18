@@ -1,5 +1,9 @@
+import os
 from happytransformer import HappyTextToText, TTSettings
 from fastapi.responses import JSONResponse
+
+# 환경 변수 설정
+os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
 class GrammarCorrector:
     @staticmethod
