@@ -35,4 +35,4 @@ uvicorn CategoryPage:app
 
 
 
-pip install -r requirements.txt --라이브러리가 모두 설치된다.
+pip install -r requirements.txt //라이브러리가 모두 설치된다.
