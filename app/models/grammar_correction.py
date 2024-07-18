@@ -1,8 +1,6 @@
 from happytransformer import HappyTextToText, TTSettings
 from fastapi.responses import JSONResponse
 
-
-
 class GrammarCorrector:
     @staticmethod
     async def correct_text(text_data: str):

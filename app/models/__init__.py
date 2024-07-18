@@ -9,4 +9,4 @@ print("models 패키지가 로드되었습니다.")
 #     return f"Hello, {name}!"
 
 from .grammar_correction import grammar_corrector
-from .grammar_correction import grammar_corrector
+from .t2t import t2t
