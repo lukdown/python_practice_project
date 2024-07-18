@@ -23,6 +23,3 @@ app.add_middleware(
 # items 라우터를 등록합니다.
 app.include_router(items.router)
 
-if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run(app, host="127.0.0.1", port=8000)
