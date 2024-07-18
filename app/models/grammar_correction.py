@@ -1,14 +1,16 @@
 from happytransformer import HappyTextToText, TTSettings
 from fastapi.responses import JSONResponse
 
-# HappyTextToText 모델 초기화
-happy_tt = HappyTextToText("T5", "vennify/t5-base-grammar-correction")
-args = TTSettings(num_beams=10, max_length=1000, min_length=1)
+
 
 class GrammarCorrector:
     @staticmethod
     async def correct_text(text_data: str):
         try:
+            # HappyTextToText 모델 초기화
+            happy_tt = HappyTextToText("T5", "vennify/t5-base-grammar-correction")
+            args = TTSettings(num_beams=10, max_length=1000, min_length=1)
+            
             # 문법 교정
             input_text = f"grammar: {text_data}"
             result = happy_tt.generate_text(input_text, args=args)
