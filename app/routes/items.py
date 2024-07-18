@@ -6,11 +6,16 @@ from app.models.t2t import t2t
 
 router = APIRouter()
 
-@router.post("/correct_grammar")
-async def correct_grammar(file: UploadFile = File(...)):
+@router.post("/grammar-correct")
+async def grammar_correct_endpoint(file: UploadFile = File(...)):
     try:
-        corrected_text = await grammar_corrector.correct_text(file)
-        return {corrected_text.body}
+        # 텍스트 파일 비동기적으로 읽기
+        text_data = (await file.read()).decode("utf-8").strip()
+
+        # grammar_corrector.correct_text 호출
+        response = await grammar_corrector.correct_text(text_data)
+
+        return response
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
     

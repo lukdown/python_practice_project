@@ -1,24 +1,20 @@
-from fastapi.responses import JSONResponse
-from fastapi import UploadFile
 from happytransformer import HappyTextToText, TTSettings
+from fastapi.responses import JSONResponse
 
 # HappyTextToText 모델 초기화
 happy_tt = HappyTextToText("T5", "vennify/t5-base-grammar-correction")
 args = TTSettings(num_beams=10, max_length=1000, min_length=1)
 
 class GrammarCorrector:
-    async def correct_text(self, file: UploadFile):
+    @staticmethod
+    async def correct_text(text_data: str):
         try:
-            # 업로드된 파일 내용 읽기
-            contents = await file.read()
-            text = contents.decode("utf-8")
-
             # 문법 교정
-            input_text = f"grammar: {text}"
+            input_text = f"grammar: {text_data}"
             result = happy_tt.generate_text(input_text, args=args)
 
             return JSONResponse(content={
-                "original_text": text,
+                "original_text": text_data,
                 "corrected_text": result.text
             })
         except Exception as e:

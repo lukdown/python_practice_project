@@ -1,4 +1,7 @@
 # requirements.txt
 
-fastapi==0.68.2
-uvicorn==0.15.0
+fastapi
+uvicorn
+transformers
+torch
+happytransformer

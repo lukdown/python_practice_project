@@ -14,3 +14,25 @@ pip install fastapi
 pip install "uvicorn[standard]"
 
 uvicorn CategoryPage:app
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+pip install -r requirements.txt --라이브러리가 모두 설치된다.
