@@ -1,11 +1,11 @@
 my-python-app/
 ├── app/                    # 메인 패키지
 │   ├── main.py
-│   ├── models
+│   ├── models/
 │   │   ├── __init__.py
 │   │   ├── grammar_correction.py
 │   │   └── t2t.py
-│   ├── routes
+│   ├── routes/
 │   │   ├── __init__.py
 │   │   └── items.py
 ├── docs/                   # 문서
